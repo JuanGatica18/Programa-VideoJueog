@@ -12,7 +12,7 @@ public abstract class Enemy {
     protected int maxHealth;
     protected boolean isDead = false;
     protected Texture texture;
-    protected int scoreValue; // Puntos que otorga al morir
+    protected int scoreValue; // Puntos que otorga al mori
 
     public Enemy(float x, float y, int health, Texture texture, int scoreValue) {
         this.x = x;
