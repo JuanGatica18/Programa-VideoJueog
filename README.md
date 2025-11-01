@@ -1,6 +1,6 @@
 # Space Invasion - Guía de Instalación
 
-## 📋 Requisitos Previos
+## Requisitos Previos
 
 Antes de instalar y ejecutar el juego, asegúrate de tener instalado:
 
@@ -10,7 +10,7 @@ Antes de instalar y ejecutar el juego, asegúrate de tener instalado:
 
 ---
 
-## 🚀 Instalación
+##  Instalación
 
 ### Opción 1: Clonar desde GitHub
 
@@ -33,7 +33,7 @@ cd Programa-VideoJueog
 
 ---
 
-## ⚙️ Configuración del Proyecto
+##  Configuración del Proyecto
 
 ### Usando Eclipse
 
@@ -45,7 +45,7 @@ cd Programa-VideoJueog
 
 ---
 
-## ▶️ Ejecutar el Juego
+##  Ejecutar el Juego
 
 ### Desde Eclipse
 
@@ -63,7 +63,7 @@ gradlew.bat lwjgl3:run
 
 ---
 
-## 🎮 Controles del Juego
+##  Controles del Juego
 
 ### Menú Principal
 - **ENTER**: Iniciar nueva partida
@@ -94,7 +94,7 @@ Asegúrate de que la carpeta `assets/` esté presente en la raíz del proyecto c
 
 ---
 
-## 📂 Estructura del Proyecto
+##  Estructura del Proyecto
 
 ```
 Programa-VideoJueog/
@@ -116,7 +116,7 @@ Programa-VideoJueog/
 
 ---
 
-## 📖 Recursos Adicionales
+##  Recursos Adicionales
 
 - **LibGDX Documentación**: [https://libgdx.com/wiki/](https://libgdx.com/wiki/)
 - **Java JDK**: [https://adoptium.net/](https://adoptium.net/)
