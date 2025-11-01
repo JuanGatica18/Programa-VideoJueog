@@ -32,8 +32,8 @@ public class PlayerShip {
         this.texture = TextureManager.getInstance().getTexture("player_ship");
         this.currentWeapon = new SingleShoot();
 
-        // Colisión más pequeña que la textura (hitbox más preciso)
-        float hitboxReduction = 0.3f; // 30% más pequeño
+        // Colisión más pequeña que la textura 
+        float hitboxReduction = 0.3f;
         float width = texture.getWidth() * (1 - hitboxReduction);
         float height = texture.getHeight() * (1 - hitboxReduction);
         this.bounds = new Rectangle(x, y, width, height);
@@ -65,13 +65,13 @@ public class PlayerShip {
             y -= speed * delta;
         }
 
-        // Limita la nave a los bordes
+        // esto limita la nave a los bordes
         if (x < 0) x = 0;
         if (x > Gdx.graphics.getWidth() - texture.getWidth()) x = Gdx.graphics.getWidth() - texture.getWidth();
         if (y < 0) y = 0;
         if (y > Gdx.graphics.getHeight() - texture.getHeight()) y = Gdx.graphics.getHeight() - texture.getHeight();
 
-        // Actualiza hitbox (centrada en la nave)
+        // actualiza hitbox
         float hitboxReduction = 0.3f;
         float width = texture.getWidth() * (1 - hitboxReduction);
         float height = texture.getHeight() * (1 - hitboxReduction);

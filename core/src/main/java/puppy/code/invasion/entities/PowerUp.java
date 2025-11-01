@@ -30,7 +30,6 @@ public class PowerUp {
         // El power-up cae lentamente
         y -= speed * delta;
 
-        // Se elimina si sale de la pantalla
         if (y < -texture.getHeight()) {
             isDead = true;
         }

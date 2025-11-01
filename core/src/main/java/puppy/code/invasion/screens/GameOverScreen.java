@@ -17,7 +17,6 @@ public class GameOverScreen implements Screen {
         this.game = game;
         this.finalScore = finalScore;
 
-        // Fuente más grande para el Game Over
         this.bigFont = new BitmapFont();
         this.bigFont.getData().setScale(3f);
     }

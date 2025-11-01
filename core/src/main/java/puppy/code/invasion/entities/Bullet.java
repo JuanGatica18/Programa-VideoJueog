@@ -19,7 +19,7 @@ public class Bullet {
         this.x = x - texture.getWidth() / 2f;
         this.y = y;
 
-        // Hitbox un poco más pequeño para colisiones más precisas
+        // Hitbox un poco mas pequeño para colisiones mas precisas
         float hitboxReduction = 0.2f;
         float width = texture.getWidth() * (1 - hitboxReduction);
         float height = texture.getHeight() * (1 - hitboxReduction);
@@ -33,7 +33,7 @@ public class Bullet {
             isDead = true;
         }
 
-        // Actualiza hitbox centrado
+        // Actualiza hitbox 
         float hitboxReduction = 0.2f;
         float width = texture.getWidth() * (1 - hitboxReduction);
         float height = texture.getHeight() * (1 - hitboxReduction);

@@ -58,7 +58,7 @@ public class TextureManager {
             }
             textures.clear();
             disposed = true;
-            instance = null; // Permite recrear el Singleton si es necesario
+            instance = null;
         }
     }
 }

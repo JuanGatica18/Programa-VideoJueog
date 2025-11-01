@@ -30,7 +30,7 @@ public class GameScreen implements Screen {
     private HUD hud;
     private Random random;
 
-    private float powerUpDuration = 10f; // Duración del power-up en segundos
+    private float powerUpDuration = 10f; // duración del power up en segundos
     private float powerUpTimer = 0;
     private boolean hasPowerUp = false;
 
@@ -49,7 +49,6 @@ public class GameScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        // --- 1. LÓGICA (Update) ---
 
         player.update(delta, playerBullets);
 
@@ -69,12 +68,12 @@ public class GameScreen implements Screen {
             bullet.update(delta);
         }
 
-        // Actualiza power-ups
+        // Actualiza power ups
         for (PowerUp powerUp : powerUps) {
             powerUp.update(delta);
         }
 
-        // Actualiza el timer del power-up
+        // Actualiza el timer del power up
         if (hasPowerUp) {
             powerUpTimer += delta;
             if (powerUpTimer >= powerUpDuration) {
@@ -84,20 +83,16 @@ public class GameScreen implements Screen {
             }
         }
 
-        // --- 2. LÓGICA DE COLISIÓN ---
         checkCollisions();
 
-        // --- 3. LÓGICA DE LIMPIEZA ---
         removeDeadEntities();
 
-        // --- 4. CHEQUEO DE GAME OVER ---
         if (player.isDead()) {
             game.setScreen(new GameOverScreen(game, hud.getScore()));
             dispose();
             return;
         }
 
-        // --- 5. DIBUJADO (Render) ---
         ScreenUtils.clear(0.1f, 0.1f, 0.1f, 1);
 
         game.batch.begin();
@@ -120,14 +115,12 @@ public class GameScreen implements Screen {
     }
 
     private void checkCollisions() {
-        // Colisión: Balas del Jugador vs Enemigos
         for (Bullet bullet : playerBullets) {
             for (Enemy enemy : enemies) {
                 if (bullet.getBounds().overlaps(enemy.getBounds())) {
                     enemy.takeDamage(100);
                     bullet.setDead(true);
 
-                    // Si el enemigo murió, suma puntos y posibilidad de soltar power-up
                     if (enemy.isDead()) {
                         hud.addScore(enemy.getScoreValue());
 
@@ -140,7 +133,6 @@ public class GameScreen implements Screen {
             }
         }
 
-        // Colisión: Enemigos vs Jugador (solo si no es invencible)
         if (!player.isInvincible()) {
             for (Enemy enemy : enemies) {
                 if (enemy.getBounds().overlaps(player.getBounds())) {
@@ -192,7 +184,7 @@ public class GameScreen implements Screen {
             }
         }
 
-        // Elimina power-ups muertos
+        // Elimina power-ups usados
         for (Iterator<PowerUp> iter = powerUps.iterator(); iter.hasNext(); ) {
             if (iter.next().isDead()) {
                 iter.remove();

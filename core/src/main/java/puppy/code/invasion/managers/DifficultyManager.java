@@ -10,14 +10,14 @@ public class DifficultyManager {
     private float baseSpawnInterval = 2.0f;
     private int baseMaxEnemies = 8;
 
-    // Límites para que no sea imposible
+    // limites para que no sea imposible
     private final float minSpawnInterval = 0.7f;
     private final int maxEnemiesLimit = 30;
 
     public void update(float delta) {
         gameTime += delta;
 
-        // Calcula el nivel actual
+        // calcula el nivel actual
         int newLevel = (int)(gameTime / levelDuration) + 1;
         if (newLevel > currentLevel) {
             currentLevel = newLevel;
@@ -25,13 +25,13 @@ public class DifficultyManager {
     }
 
     public float getSpawnInterval() {
-        // Reduce el intervalo de spawn gradualmente
+        // reduce el intervalo de spawn gradualmente
         float interval = baseSpawnInterval - (currentLevel - 1) * 0.15f;
         return Math.max(interval, minSpawnInterval);
     }
 
     public int getMaxEnemies() {
-        // Aumenta el número máximo de enemigos
+        // aumenta el número máximo de enemigos
         int max = baseMaxEnemies + (currentLevel - 1);
         return Math.min(max, maxEnemiesLimit);
     }

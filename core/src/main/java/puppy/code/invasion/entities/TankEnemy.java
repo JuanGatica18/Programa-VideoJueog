@@ -5,7 +5,7 @@ import puppy.code.invasion.managers.TextureManager;
 
 public class TankEnemy extends Enemy {
     public TankEnemy(float x, float y) {
-        // 300 de vida, vale 30 puntos (más difícil de matar)
+        // 300 de vida, vale 30 puntos 
         super(x, y, 300, TextureManager.getInstance().getTexture("tank_enemy"), 30);
     }
 

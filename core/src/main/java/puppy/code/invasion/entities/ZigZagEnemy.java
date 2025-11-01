@@ -10,13 +10,13 @@ public class ZigZagEnemy extends Enemy {
     private float zigzagInterval = 1f; // Cambia de dirección cada 1 segundo
 
     public ZigZagEnemy(float x, float y) {
-        // 100 de vida, vale 20 puntos (enemigo medio)
+        // 100 de vida, vale 20 puntos 
         super(x, y, 100, TextureManager.getInstance().getTexture("zigzag_enemy"), 20);
     }
 
     @Override
     public void update(float delta) {
-        // Movimiento vertical (baja)
+        // Movimiento vertical 
         y -= 120 * delta;
 
         // Movimiento horizontal en zigzag

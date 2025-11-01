@@ -16,23 +16,19 @@ public class MenuScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        // Limpia la pantalla
-        ScreenUtils.clear(0, 0, 0.2f, 1); // Azul oscuro
+        ScreenUtils.clear(0, 0, 0.2f, 1); 
 
-        // Dibuja el texto
         game.batch.begin();
         game.font.draw(game.batch, "Proyecto Invasion", 100, 150);
         game.font.draw(game.batch, "Presiona ENTER para jugar", 100, 100);
         game.batch.end();
 
-        // Si pulsa ENTER, cambia a la pantalla de juego
         if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
             game.setScreen(new GameScreen(game));
             dispose();
         }
     }
 
-    // --- Métodos de Screen vacíos ---
     @Override public void show() { }
     @Override public void resize(int width, int height) { }
     @Override public void pause() { }

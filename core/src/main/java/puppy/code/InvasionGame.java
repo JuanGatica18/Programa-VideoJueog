@@ -8,7 +8,6 @@ import puppy.code.invasion.managers.TextureManager;
 
 public class InvasionGame extends Game {
 
-    // Objetos compartidos por todas las pantallas
     public SpriteBatch batch;
     public BitmapFont font;
 
@@ -17,16 +16,15 @@ public class InvasionGame extends Game {
         batch = new SpriteBatch();
         font = new BitmapFont();
 
-        // Inicializa el TextureManager una sola vez
+        // se inicializa el TextureManager una sola vez
         TextureManager.getInstance();
 
-        // Inicia el juego y establece la pantalla de Menú
+        // esto nicia el juego y establece la pantalla de Menú
         this.setScreen(new MenuScreen(this));
     }
 
     @Override
     public void render() {
-        // Delega el dibujado a la pantalla activa
         super.render();
     }
 
@@ -36,7 +34,7 @@ public class InvasionGame extends Game {
         batch.dispose();
         font.dispose();
 
-        // AHORA SÍ disponemos el TextureManager al cerrar todo el juego
+        // AHORA SÍ disponemos el TextureManager 
         TextureManager.getInstance().dispose();
     }
 }

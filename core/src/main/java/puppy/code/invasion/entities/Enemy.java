@@ -22,7 +22,7 @@ public abstract class Enemy {
         this.texture = texture;
         this.scoreValue = scoreValue;
 
-        // Hitbox más pequeño (70% del tamaño de la textura)
+        // Hitbox más pequeño 
         float hitboxReduction = 0.3f;
         float width = texture.getWidth() * (1 - hitboxReduction);
         float height = texture.getHeight() * (1 - hitboxReduction);
@@ -52,7 +52,7 @@ public abstract class Enemy {
         bounds.set(centerX, centerY, width, height);
     }
 
-    // Verifica si salió de la pantalla (abajo)
+    // Verifica si salió de la pantalla
     protected boolean isOutOfScreen() {
         return y < -texture.getHeight();
     }
