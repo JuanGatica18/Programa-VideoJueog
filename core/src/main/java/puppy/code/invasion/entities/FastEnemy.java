@@ -9,13 +9,8 @@ public class FastEnemy extends Enemy {
     }
 
     @Override
-    public void update(float delta) {
-        y -= 200 * delta; // Velocidad rápida
-        updateBounds(); // Actualiza el hitbox
-
-        // Se marca como muerto si sale de la pantalla
-        if (isOutOfScreen()) {
-            setDead(true);
-        }
+    protected void moveBehavior(float delta)
+    {
+      y -= 200 * delta; 
     }
 }

@@ -29,7 +29,16 @@ public abstract class Enemy {
         this.bounds = new Rectangle(x, y, width, height);
     }
 
-    public abstract void update(float delta);
+    public final void update(float delta)
+    {
+    	moveBehavior(delta);
+    	updateBounds();
+    	if (isOutOfScreen()) {
+    		setDead(true);
+    	}
+    }
+    
+    protected abstract void moveBehavior(float delta);
 
     public void render(SpriteBatch batch) {
         if (texture != null) {

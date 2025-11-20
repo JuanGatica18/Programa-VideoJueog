@@ -10,13 +10,8 @@ public class TankEnemy extends Enemy {
     }
 
     @Override
-    public void update(float delta) {
-        y -= 50 * delta; // Velocidad lenta
-        updateBounds(); // Actualiza el hitbox
-
-        // Se marca como muerto si sale de la pantalla
-        if (isOutOfScreen()) {
-            setDead(true);
-        }
+    protected void moveBehavior(float delta)
+    {
+      y -= 50 * delta; 
     }
 }

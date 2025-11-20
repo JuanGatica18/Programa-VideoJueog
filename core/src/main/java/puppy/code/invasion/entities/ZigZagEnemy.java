@@ -15,34 +15,25 @@ public class ZigZagEnemy extends Enemy {
     }
 
     @Override
-    public void update(float delta) {
-        // Movimiento vertical 
-        y -= 120 * delta;
+    protected void moveBehavior(float delta) {
+        // Comportamiento específico: Movimiento complejo en zigzag
+        y -= 120 * delta; // Cae
+        x += horizontalSpeed * direction * delta; // Se mueve lateralmente
 
-        // Movimiento horizontal en zigzag
-        x += horizontalSpeed * direction * delta;
-
-        // Cambia de dirección cada cierto tiempo
+        // Lógica del zigzag
         zigzagTimer += delta;
         if (zigzagTimer >= zigzagInterval) {
-            direction *= -1; // Invierte la dirección
+            direction *= -1;
             zigzagTimer = 0;
         }
 
-        // Rebota en los bordes de la pantalla
+        // Mantener dentro de la pantalla (rebote simple)
         if (x < 0) {
             x = 0;
             direction = 1;
         } else if (x > Gdx.graphics.getWidth() - texture.getWidth()) {
             x = Gdx.graphics.getWidth() - texture.getWidth();
             direction = -1;
-        }
-
-        updateBounds(); // Actualiza el hitbox
-
-        // Se marca como muerto si sale de la pantalla
-        if (isOutOfScreen()) {
-            setDead(true);
         }
     }
 }
