@@ -3,6 +3,8 @@ package puppy.code.invasion.managers;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.Array;
 import puppy.code.invasion.entities.*;
+import puppy.code.invasion.factory.EnemyFactory;
+import puppy.code.invasion.factory.Level1EnemyFactory;
 import java.util.Random;
 
 public class EnemySpawner {
@@ -10,11 +12,17 @@ public class EnemySpawner {
     private float spawnTimer;
     private Random random;
     private DifficultyManager difficultyManager;
+    private EnemyFactory enemyFactory;
 
     public EnemySpawner(DifficultyManager difficultyManager) {
         this.random = new Random();
         this.spawnTimer = 0;
         this.difficultyManager = difficultyManager;
+        this.enemyFactory = new Level1EnemyFactory();
+    }
+    
+    public void setFactory(EnemyFactory factory) {
+        this.enemyFactory = factory;
     }
 
     public void update(float delta, Array<Enemy> enemies) {
@@ -23,7 +31,6 @@ public class EnemySpawner {
         float spawnInterval = difficultyManager.getSpawnInterval();
         int maxEnemies = difficultyManager.getMaxEnemies();
 
-        // Si es tiempo de spawn y no hay demasiados enemigos
         if (spawnTimer >= spawnInterval && enemies.size < maxEnemies) {
             spawnEnemy(enemies);
             spawnTimer = 0;
@@ -31,23 +38,20 @@ public class EnemySpawner {
     }
 
     private void spawnEnemy(Array<Enemy> enemies) {
-        // Posición X aleatoria en la pantalla
         float x = random.nextInt(Gdx.graphics.getWidth() - 64);
-
-        // Aparece arriba de la pantalla
         float y = Gdx.graphics.getHeight() + 50;
 
         float rand = random.nextFloat();
         float zigzagChance = difficultyManager.getZigZagChance();
         float tankChance = difficultyManager.getTankChance();
 
-        // Distribución de enemigos según la dificultad
         if (rand < zigzagChance) {
-            enemies.add(new ZigZagEnemy(x, y));
+            enemies.add(enemyFactory.createZigZagEnemy(x, y));
         } else if (rand < zigzagChance + tankChance) {
-            enemies.add(new TankEnemy(x, y));
+            enemies.add(enemyFactory.createTankEnemy(x, y));
         } else {
-            enemies.add(new FastEnemy(x, y));
+            enemies.add(enemyFactory.createFastEnemy(x, y));
         }
+        // -----------------------------------------------------
     }
 }
