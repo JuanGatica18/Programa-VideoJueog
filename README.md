@@ -4,7 +4,7 @@
 
 Antes de instalar y ejecutar el juego, asegúrate de tener instalado:
 
-- **Java JDK 11 o superior**
+- **Java JDK 17 o superior**
 - **Git** (opcional, para clonar el repositorio)
 - **Eclipse IDE** (recomendado para desarrollo Java)
 
